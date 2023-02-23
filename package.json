@@ -6,6 +6,7 @@
   "scripts": {
     "compile": "tsc",
     "devstart": "ts-node-dev --respawn --pretty --transpile-only src/index.ts",
+    "build": "npm install && npm run compile && npm run build",
     "start": "node ./dist/index.js"
   },
   "keywords": [],
