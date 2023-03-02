@@ -3,7 +3,6 @@
 # dependencies
 .env
 node_modules
-dist
 bin
 /.pnp
 .pnp.js
