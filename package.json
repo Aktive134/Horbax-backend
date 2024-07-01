@@ -8,6 +8,7 @@
     "start": "node ./dist/index.js",
     "tsc": "./node_modules/typescript/bin/tsc",
     "build": "tsc",
+    "compile": "tsc",
     "postinstall": "npm run build"
   },
   "keywords": [],
