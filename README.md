@@ -17,7 +17,7 @@
 - create a .env file, include similar decription/values in the .envExample file in your .env file
 - run `npm install`
 - you either run `npm run build` folllowed by `npm start` or simply run `npm run devstart`
-- You can also run the docker image by using this command `docker run horbax:1.0`
+- You can also run the docker image by using this command `docker run -d horbax:1.0`
 
 ## Note
 # To view admin page use the below login details
