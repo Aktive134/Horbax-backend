@@ -23,4 +23,4 @@
 # To view admin page use the below login details
 - email: raymond@gmail.com, password: 12345
 - Hosted site: https://horbax-fe.vercel.app
-- find seperate hosted repositories on my profile
+- find seperate hosted repositories on my profile.
