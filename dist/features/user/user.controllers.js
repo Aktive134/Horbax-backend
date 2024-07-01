@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const bcrypt_1 = __importDefault(require("bcrypt"));
+const bcryptjs_1 = __importDefault(require("bcryptjs"));
 const user_model_1 = __importDefault(require("../user/user.model"));
 const constant_1 = __importDefault(require("../../constant"));
 const config_1 = __importDefault(require("../../config"));
@@ -21,8 +21,8 @@ class UserController {
                 user.name = name || user.name;
                 user.email = email || user.email;
                 if (password) {
-                    const salt = await bcrypt_1.default.genSalt(config_1.default.saltFactor);
-                    const hashPassword = await bcrypt_1.default.hash(password, salt);
+                    const salt = await bcryptjs_1.default.genSalt(config_1.default.saltFactor);
+                    const hashPassword = await bcryptjs_1.default.hash(password, salt);
                     user.password = hashPassword;
                 }
                 const updatedUser = await user.save();

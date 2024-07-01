@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const bcrypt_1 = __importDefault(require("bcrypt"));
+const bcryptjs_1 = __importDefault(require("bcryptjs"));
 const user_model_1 = __importDefault(require("../user/user.model"));
 const constant_1 = __importDefault(require("../../constant"));
 const config_1 = __importDefault(require("../../config"));
@@ -23,8 +23,8 @@ class AuthController {
                 isAdmin,
             };
             const newUser = new user_model_1.default(data);
-            const salt = await bcrypt_1.default.genSalt(config_1.default.saltFactor);
-            const hashPassword = await bcrypt_1.default.hash(data.password, salt);
+            const salt = await bcryptjs_1.default.genSalt(config_1.default.saltFactor);
+            const hashPassword = await bcryptjs_1.default.hash(data.password, salt);
             newUser.password = hashPassword;
             const user = await newUser.save();
             const token = (0, generate_token_1.default)(user);
@@ -39,7 +39,7 @@ class AuthController {
             if (!user) {
                 return next(new NotAuthorizedError_1.default('Invalid login credentials'));
             }
-            const checkPassword = await bcrypt_1.default.compare(password, user === null || user === void 0 ? void 0 : user.password);
+            const checkPassword = await bcryptjs_1.default.compare(password, user === null || user === void 0 ? void 0 : user.password);
             if (!checkPassword) {
                 return next(new NotAuthorizedError_1.default('Invalid login credentials'));
             }
